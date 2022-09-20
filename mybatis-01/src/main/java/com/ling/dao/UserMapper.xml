@@ -4,6 +4,36 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ling.dao.UserDao">
     <select id="getUserList" resultType="com.ling.pojo.User">
-        select * from user
+        select * from user;
+    </select>
+<!--    可以把属性直接取出来-->
+    <select id="getUserById" parameterType="int" resultType="com.ling.pojo.User">
+        select * from user where id = #{id};
+    </select>
+
+    <select id="getUserById2" parameterType="map" resultType="com.ling.pojo.User">
+        select * from user where id = #{id} and name =#{name};
+    </select>
+
+
+    <insert id="addUser" parameterType="com.ling.pojo.User" >
+insert  into user(name,pwd) values (#{name},#{pwd});
+
+    </insert>
+<!--    map传递参数-->
+    <insert id="addUser2" parameterType="map">
+        insert  into user(name,pwd) values (#{username},#{password});
+    </insert>
+
+    <update id="updateUser" parameterType="com.ling.pojo.User">
+        update user set name=#{name},pwd=#{pwd} where id = #{id};
+    </update>
+
+    <delete id="delUser" parameterType="int">
+        delete from user where id = #{id}
+    </delete>
+
+    <select id="getUserByLike" resultType="com.ling.pojo.User">
+        select * from user where name like #{value};
     </select>
 </mapper>
