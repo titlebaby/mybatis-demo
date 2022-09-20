@@ -11,6 +11,15 @@
         select * from user where id = #{id};
     </select>
 
+<!--    <select id="getUserById" parameterType="int" resultMap="UserMap">-->
+<!--        select * from user where id = #{id};-->
+<!--    </select>-->
+    <resultMap id="UserMap" type="User">
+<!--        column数据库中的字段，映射到实体类中的属性-->
+<!--        <result column="id" property="id" />-->
+<!--        <result column="name" property="name" />-->
+        <result column="pwd" property="password" />
+    </resultMap>
 
     <insert id="addUser" parameterType="com.ling.pojo.User" >
 insert  into user(name,pwd) values (#{name},#{pwd});
