@@ -2,21 +2,21 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ling.dao.UserDao">
-    <select id="getUserList" resultType="com.ling.pojo.User">
+<mapper namespace="com.ling.UserDao">
+    <select id="getUserList" resultType="com.ling.User">
         select * from user;
     </select>
 <!--    可以把属性直接取出来-->
-    <select id="getUserById" parameterType="int" resultType="com.ling.pojo.User">
+    <select id="getUserById" parameterType="int" resultType="com.ling.User">
         select * from user where id = #{id};
     </select>
 
-    <select id="getUserById2" parameterType="map" resultType="com.ling.pojo.User">
+    <select id="getUserById2" parameterType="map" resultType="com.ling.User">
         select * from user where id = #{id} and name =#{name};
     </select>
 
 
-    <insert id="addUser" parameterType="com.ling.pojo.User" >
+    <insert id="addUser" parameterType="com.ling.User" >
 insert  into user(name,pwd) values (#{name},#{pwd});
 
     </insert>
@@ -25,7 +25,7 @@ insert  into user(name,pwd) values (#{name},#{pwd});
         insert  into user(name,pwd) values (#{username},#{password});
     </insert>
 
-    <update id="updateUser" parameterType="com.ling.pojo.User">
+    <update id="updateUser" parameterType="com.ling.User">
         update user set name=#{name},pwd=#{pwd} where id = #{id};
     </update>
 
@@ -33,7 +33,7 @@ insert  into user(name,pwd) values (#{name},#{pwd});
         delete from user where id = #{id}
     </delete>
 
-    <select id="getUserByLike" resultType="com.ling.pojo.User">
+    <select id="getUserByLike" resultType="com.ling.User">
         select * from user where name like #{value};
     </select>
 </mapper>
