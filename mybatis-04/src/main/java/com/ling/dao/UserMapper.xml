@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ling.dao.UserMapper">
+    <select id="getUserList" resultType="com.ling.pojo.User">
+        select * from user;
+    </select>
+<!--    可以把属性直接取出来-->
+    <select id="getUserById" parameterType="int" resultType="user">
+        select * from user where id = #{id};
+    </select>
+
+<!--    <select id="getUserById" parameterType="int" resultMap="UserMap">-->
+<!--        select * from user where id = #{id};-->
+<!--    </select>-->
+    <resultMap id="UserMap" type="User">
+<!--        column数据库中的字段，映射到实体类中的属性-->
+<!--        <result column="id" property="id" />-->
+<!--        <result column="name" property="name" />-->
+        <result column="pwd" property="password" />
+    </resultMap>
+
+    <insert id="addUser" parameterType="com.ling.pojo.User" >
+insert  into user(name,pwd) values (#{name},#{pwd});
+
+    </insert>
+
+    <update id="updateUser" parameterType="com.ling.pojo.User">
+        update user set name=#{name},pwd=#{pwd} where id = #{id};
+    </update>
+
+    <delete id="delUser" parameterType="int">
+        delete from user where id = #{id}
+    </delete>
+</mapper>
