@@ -4,11 +4,15 @@ import com.ling.dao.UserMapper;
 import com.ling.pojo.User;
 import com.ling.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import java.util.List;
 
+
 public class UserMapperTest {
+    static Logger logger = Logger.getLogger(UserMapperTest.class);
+
     @Test
     public void test(){
         // 1. 获取sqlSession
@@ -34,54 +38,10 @@ public class UserMapperTest {
         System.out.println(user);
         sqlSession.close();
     }
-
     @Test
-    public void addUser() {
-        // 1. 获取sqlSession
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
-        //2. 执行sql(方式1)
-        UserMapper UserDaoMapper = sqlSession.getMapper(UserMapper.class);
-
-        int res = UserDaoMapper.addUser(new User(3,"hahah","123456"));
-        if (res > 0) {
-            System.out.println("成功");
-        }
-
-        sqlSession.commit();
-        sqlSession.close();
-
+    public void testLog4j(){
+        logger.info("info");
+        logger.debug("debug");
+        logger.error("error");
     }
-
-    @Test
-    public void updateUser() {
-        // 1. 获取sqlSession
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
-        //2. 执行sql(方式1)
-        UserMapper UserDaoMapper = sqlSession.getMapper(UserMapper.class);
-
-        int res = UserDaoMapper.updateUser(new User(3,"hahahlal","123456"));
-        if (res > 0) {
-            System.out.println("成功");
-        }
-
-        sqlSession.commit();
-        sqlSession.close();
-    }
-
-    @Test
-    public void delUser() {
-        // 1. 获取sqlSession
-        SqlSession sqlSession = MybatisUtils.getSqlSession();
-        //2. 执行sql(方式1)
-        UserMapper UserDaoMapper = sqlSession.getMapper(UserMapper.class);
-
-        int res = UserDaoMapper.delUser(3);
-        if (res > 0) {
-            System.out.println("成功");
-        }
-        sqlSession.commit();
-        sqlSession.close();
-
-    }
-
 }
