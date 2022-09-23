@@ -21,16 +21,9 @@
         <result column="pwd" property="password" />
     </resultMap>
 
-    <insert id="addUser" parameterType="com.ling.pojo.User" >
-insert  into user(name,pwd) values (#{name},#{pwd});
+<select id="getUserByLimit" parameterType="map" resultType="user">
+    select * from user limit #{startIndex},#{pageSize};
+</select>
 
-    </insert>
 
-    <update id="updateUser" parameterType="com.ling.pojo.User">
-        update user set name=#{name},pwd=#{pwd} where id = #{id};
-    </update>
-
-    <delete id="delUser" parameterType="int">
-        delete from user where id = #{id}
-    </delete>
 </mapper>

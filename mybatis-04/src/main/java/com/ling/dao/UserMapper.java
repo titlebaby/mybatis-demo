@@ -7,6 +7,7 @@ package com.ling.dao;
 import com.ling.pojo.User;
 
 import java.util.List;
+import java.util.Map;
 
 // mybatis 避免了几乎左右的JDBC代码和手动设置参数 衣机获取结果集
 public interface UserMapper {
@@ -14,10 +15,7 @@ public interface UserMapper {
 
     User getUserById(int id);
 
-    //增删改需要提交事务
-    int addUser(User user);
 
-    int updateUser(User user);
+    List<User> getUserByLimit(Map<String, Integer> map);
 
-    int delUser(int id);
 }
