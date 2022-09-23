@@ -12,6 +12,7 @@
         <module>mybatis-01</module>
         <module>mybatis-02</module>
         <module>mybatis-04</module>
+        <module>mybatis-05</module>
     </modules>
 
     <properties>
@@ -25,7 +26,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.28</version>
+            <version>8.0.15</version>
         </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
