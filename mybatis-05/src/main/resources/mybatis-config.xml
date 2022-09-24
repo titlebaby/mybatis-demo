@@ -23,6 +23,7 @@
     <mappers>
 <!--       1. 推荐使用这种-->
 <!--        <mapper resource="com/ling/dao/UserMapper.xml"/>-->
+<!--        <mapper resource="com/ling/dao/*Mapper.xml"/>-->
         <!--       2. 使用class文件绑定注册-->
 <!--        <mapper class="com.ling.dao.UserMapper"/>-->
 <!--        使用class文件绑定注册，1.接口和他的Mapper配置文件必须同名 2 接口和他的Mapper配置文件必须再同一个包下-->

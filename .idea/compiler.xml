@@ -17,7 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="mybatis-02" options="" />
       <module name="mybatis-04" options="" />
-      <module name="mybatis-05" options="--add-modules java.base" />
+      <module name="mybatis-05" options="" />
     </option>
   </component>
 </project>
