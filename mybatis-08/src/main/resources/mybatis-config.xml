@@ -5,6 +5,7 @@
 <configuration>
     <properties resource="db.properties"/>
     <settings>
+        <setting name="logImpl" value="LOG4J"/>
 <!--        是否开启自动驼峰命名规则映射 create_time-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
